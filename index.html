@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pavan Kumar — Product Manager & Builder</title>
+<title>Pavan Kumar | Product Manager & Builder</title>
 <meta name="description" content="Technical Product Manager building AI-powered consumer apps. Espresso Coach, Plant Daddy, MCAT Coach, and more." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -121,14 +121,9 @@
 
   /* ---------- about ---------- */
   .about { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
-  @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .about-grid { max-width: 660px; }
   .about p { color: var(--muted); margin-bottom: 16px; }
   .about p strong { color: var(--text); font-weight: 600; }
-  .stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
-  .stat { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
-  .stat .num { font-size: 2rem; font-weight: 800; letter-spacing: -.03em; color: var(--accent); }
-  .stat .label { color: var(--muted); font-size: .88rem; margin-top: 2px; }
   .skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
 
   /* ---------- contact / footer ---------- */
@@ -163,9 +158,10 @@
       <span class="badge"><span class="dot"></span> Building an app every day</span>
       <h1>Technical PM who<br><span class="grad">ships, not just specs.</span></h1>
       <p class="lead">
-        I'm Pavan — a product manager with 7+ years building loyalty and engagement
-        platforms at Starbucks, The New York Times, and JCPenney. Lately I prototype a new
-        AI-powered app daily to stay close to the craft.
+        I'm Pavan, a product manager with 7+ years building loyalty and engagement
+        platforms at Starbucks, The New York Times, and JCPenney. These days I build a
+        small app most mornings, usually with some AI baked in, just to keep my hands on
+        the tools.
       </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#projects">View projects →</a>
@@ -180,7 +176,7 @@
       <div class="sec-head">
         <div class="kicker">Selected work</div>
         <h2>Things I've built</h2>
-        <p>Small, real, shipped products — each one full-stack and most powered by Claude under the hood.</p>
+        <p>Small things I actually shipped. Most are full-stack, and a lot of them lean on Claude for the smart parts.</p>
       </div>
       <div class="grid" id="project-grid"></div>
     </section>
@@ -195,39 +191,31 @@
       <h2>Product mind, builder hands</h2>
     </div>
     <div class="about-grid">
-      <div>
-        <p>
-          I've spent my career owning roadmaps for products used by tens of millions of people —
-          <strong>Starbucks Rewards (40M+ members)</strong>, the <strong>NYT Backstage developer
-          portal (200+ engineers)</strong>, and <strong>JCPenney Rewards</strong>.
-        </p>
-        <p>
-          What I care about most is the gap between a product idea and a working thing in someone's
-          hands. To keep that gap small, I build. The projects here started as daily prototypes —
-          shipping each one taught me something about full-stack development and applied AI that no
-          spec ever could.
-        </p>
-        <p>
-          I'm increasingly focused on weaving AI/ML into consumer products, from LLM-powered
-          personalization to behavioral prediction.
-        </p>
-        <div class="skills">
-          <span class="tag">Python</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">SQL</span>
-          <span class="tag">REST APIs</span>
-          <span class="tag">Claude / LLMs</span>
-          <span class="tag">A/B Testing</span>
-          <span class="tag">Amplitude</span>
-          <span class="tag">Looker</span>
-          <span class="tag">Figma</span>
-        </div>
-      </div>
-      <div class="stats">
-        <div class="stat"><div class="num">40M+</div><div class="label">Loyalty members served</div></div>
-        <div class="stat"><div class="num">7+</div><div class="label">Years in product</div></div>
-        <div class="stat"><div class="num">4</div><div class="label">Apps shipped here</div></div>
-        <div class="stat"><div class="num">∞</div><div class="label">Apps still to build</div></div>
+      <p>
+        I've spent my career owning roadmaps for products that reach tens of millions of people:
+        <strong>Starbucks Rewards (40M+ members)</strong>, the <strong>NYT Backstage developer
+        portal (200+ engineers)</strong>, and <strong>JCPenney Rewards</strong>.
+      </p>
+      <p>
+        The part I care about most is the distance between an idea and a real thing someone
+        can use. The best way I've found to shrink it is to just build. Most of the projects
+        here started as something I threw together in a day, and each one taught me more about
+        shipping software than any spec ever did.
+      </p>
+      <p>
+        Right now a lot of that energy goes into putting AI into consumer products, from
+        personalization to figuring out what someone's likely to do next.
+      </p>
+      <div class="skills">
+        <span class="tag">Python</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">SQL</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">Claude / LLMs</span>
+        <span class="tag">A/B Testing</span>
+        <span class="tag">Amplitude</span>
+        <span class="tag">Looker</span>
+        <span class="tag">Figma</span>
       </div>
     </div>
   </div>
@@ -260,8 +248,7 @@
 <script>
   /* =====================================================================
      EDIT HERE: project links live in one place.
-     - "demo" = the live deployed URL. The two marked TODO are Railway
-       apps with auto-generated domains — paste the real URLs in.
+     - "demo" = the live deployed URL.
      - Set demo to "" to hide the "Live demo" link for a project.
      ===================================================================== */
   const PROJECTS = [
@@ -269,7 +256,7 @@
       icon: "☕",
       name: "Espresso Coach",
       tagline: "AI barista in your pocket",
-      desc: "Log every espresso shot — dose, yield, grind, time — and get specific, beginner-friendly AI advice on what to dial in next. Tracks your trajectory per roast over time.",
+      desc: "Log every espresso shot (dose, yield, grind, time) and get specific, friendly advice on what to change next. It remembers your past shots for each roast, so the suggestions build on each other.",
       tags: ["FastAPI", "SQLAlchemy", "Claude", "Python"],
       demo: "https://espresso-log-production.up.railway.app/",
       repo: "https://github.com/kumarpav/espresso-log"
@@ -278,25 +265,25 @@
       icon: "🪴",
       name: "Plant Daddy",
       tagline: "Keep your plants alive",
-      desc: "A plant-care journal that diagnoses health issues from your observations and photos. Species-aware AI coaching tells you whether it's overwatering, light, or pests — and what to do.",
+      desc: "A plant-care journal that helps you figure out what's wrong from your notes and photos. It pays attention to the species and tells you whether you're looking at overwatering, bad light, or pests, plus what to do about it.",
       tags: ["FastAPI", "SQLAlchemy", "Claude Vision", "Python"],
-      demo: "https://plant-daddy.fly.dev", // verify
+      demo: "https://plant-daddy.fly.dev",
       repo: "https://github.com/kumarpav/plant-coach"
     },
     {
       icon: "🧬",
       name: "MCAT Coach",
       tagline: "Turn score screenshots into insight",
-      desc: "Snap a screenshot of any MCAT practice result and Claude vision parses it into structured data — then surfaces weak topics and performance trends across sources and sections.",
+      desc: "Snap a screenshot of any MCAT practice result and Claude reads it into clean data, then shows you which topics are dragging you down and how you're trending across sources and sections.",
       tags: ["FastAPI", "Claude Vision", "SQLAlchemy", "Python"],
-      demo: "https://mcat-coach.fly.dev", // verify
+      demo: "https://mcat-coach.fly.dev",
       repo: "https://github.com/kumarpav/mcat-coach"
     },
     {
       icon: "🃏",
       name: "Pablo",
       tagline: "Real-time multiplayer card game",
-      desc: "A live, 2–6 player card game built on WebSockets. Create a lobby, share a 5-letter room code, and play the memory-and-bluff card game Pablo with friends in real time.",
+      desc: "A live card game for 2 to 6 players, built on WebSockets. Start a lobby, share the 5-letter room code, and play Pablo with friends in real time.",
       tags: ["Node.js", "Socket.io", "Express", "WebSockets"],
       demo: "https://playpablo.up.railway.app/",
       repo: "https://github.com/kumarpav/pablo"
