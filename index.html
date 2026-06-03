@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pavan Kumar — Product Manager & Builder</title>
+<meta name="description" content="Technical Product Manager building AI-powered consumer apps. Espresso Coach, Plant Daddy, MCAT Coach, and more." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #fbfbfa;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #ececec;
+    --accent: #2f6f4e;          /* deep green */
+    --accent-soft: #eaf3ee;
+    --radius: 16px;
+    --maxw: 1040px;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- nav ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251,251,250,.8);
+    backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-weight: 800; letter-spacing: -.02em; font-size: 1.05rem; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { color: var(--muted); font-weight: 500; font-size: .95rem; transition: color .15s; }
+  .nav-links a:hover { color: var(--text); }
+  @media (max-width: 600px) { .nav-links { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 96px 0 72px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: .82rem; font-weight: 600;
+    padding: 6px 14px; border-radius: 999px; margin-bottom: 28px;
+  }
+  .badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 800; letter-spacing: -.035em; line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .hero h1 .grad { color: var(--accent); }
+  .hero p.lead {
+    font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+    color: var(--muted); max-width: 620px; margin-bottom: 36px;
+  }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 600; font-size: .95rem;
+    padding: 12px 22px; border-radius: 999px;
+    border: 1px solid transparent; transition: all .15s; cursor: pointer;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #25593f; transform: translateY(-1px); }
+  .btn-ghost { background: var(--surface); color: var(--text); border-color: var(--border); }
+  .btn-ghost:hover { border-color: #d4d4d4; transform: translateY(-1px); }
+
+  /* ---------- section heading ---------- */
+  section { padding: 64px 0; }
+  .sec-head { margin-bottom: 40px; }
+  .sec-head .kicker { color: var(--accent); font-weight: 600; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
+  .sec-head h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -.03em; margin-top: 6px; }
+  .sec-head p { color: var(--muted); margin-top: 10px; max-width: 600px; }
+
+  /* ---------- projects ---------- */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+    display: flex; flex-direction: column;
+    transition: transform .18s, box-shadow .18s, border-color .18s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #e0e0e0; }
+  .card .icon {
+    width: 52px; height: 52px; border-radius: 13px;
+    display: grid; place-items: center; font-size: 1.6rem;
+    background: var(--accent-soft); margin-bottom: 18px;
+  }
+  .card h3 { font-size: 1.25rem; font-weight: 700; letter-spacing: -.02em; }
+  .card .tagline { color: var(--accent); font-weight: 600; font-size: .85rem; margin: 2px 0 12px; }
+  .card p.desc { color: var(--muted); font-size: .95rem; flex-grow: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 20px; }
+  .tag {
+    font-size: .76rem; font-weight: 500; color: var(--muted);
+    background: #f4f4f3; border: 1px solid var(--border);
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .card-links { display: flex; gap: 18px; align-items: center; }
+  .card-links a {
+    font-weight: 600; font-size: .9rem; color: var(--accent);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .card-links a:hover { text-decoration: underline; }
+  .card-links a.repo { color: var(--muted); }
+  .card-links a.repo:hover { color: var(--text); }
+
+  /* ---------- about ---------- */
+  .about { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
+  @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .about p { color: var(--muted); margin-bottom: 16px; }
+  .about p strong { color: var(--text); font-weight: 600; }
+  .stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+  .stat { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+  .stat .num { font-size: 2rem; font-weight: 800; letter-spacing: -.03em; color: var(--accent); }
+  .stat .label { color: var(--muted); font-size: .88rem; margin-top: 2px; }
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+
+  /* ---------- contact / footer ---------- */
+  .contact { text-align: center; }
+  .contact h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -.03em; }
+  .contact p { color: var(--muted); margin: 12px auto 28px; max-width: 480px; }
+  footer { border-top: 1px solid var(--border); padding: 28px 0; }
+  .foot-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: .88rem; }
+  .foot-links { display: flex; gap: 22px; }
+  .foot-links a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo">Pavan<span>.</span>Kumar</a>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="wrap">
+    <section class="hero">
+      <span class="badge"><span class="dot"></span> Building an app every day</span>
+      <h1>Technical PM who<br><span class="grad">ships, not just specs.</span></h1>
+      <p class="lead">
+        I'm Pavan — a product manager with 7+ years building loyalty and engagement
+        platforms at Starbucks, The New York Times, and JCPenney. Lately I prototype a new
+        AI-powered app daily to stay close to the craft.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#projects">View projects →</a>
+        <a class="btn btn-ghost" href="https://github.com/kumarpav" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="wrap">
+    <section id="projects">
+      <div class="sec-head">
+        <div class="kicker">Selected work</div>
+        <h2>Things I've built</h2>
+        <p>Small, real, shipped products — each one full-stack and most powered by Claude under the hood.</p>
+      </div>
+      <div class="grid" id="project-grid"></div>
+    </section>
+  </div>
+</main>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">About</div>
+      <h2>Product mind, builder hands</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>
+          I've spent my career owning roadmaps for products used by tens of millions of people —
+          <strong>Starbucks Rewards (40M+ members)</strong>, the <strong>NYT Backstage developer
+          portal (200+ engineers)</strong>, and <strong>JCPenney Rewards</strong>.
+        </p>
+        <p>
+          What I care about most is the gap between a product idea and a working thing in someone's
+          hands. To keep that gap small, I build. The projects here started as daily prototypes —
+          shipping each one taught me something about full-stack development and applied AI that no
+          spec ever could.
+        </p>
+        <p>
+          I'm increasingly focused on weaving AI/ML into consumer products, from LLM-powered
+          personalization to behavioral prediction.
+        </p>
+        <div class="skills">
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">SQL</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Claude / LLMs</span>
+          <span class="tag">A/B Testing</span>
+          <span class="tag">Amplitude</span>
+          <span class="tag">Looker</span>
+          <span class="tag">Figma</span>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">40M+</div><div class="label">Loyalty members served</div></div>
+        <div class="stat"><div class="num">7+</div><div class="label">Years in product</div></div>
+        <div class="stat"><div class="num">4</div><div class="label">Apps shipped here</div></div>
+        <div class="stat"><div class="num">∞</div><div class="label">Apps still to build</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's build something.</h2>
+    <p>Open to product roles, collaborations, or just trading notes on shipping AI products fast.</p>
+    <div class="cta-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="mailto:pavank997@gmail.com">pavank997@gmail.com</a>
+      <a class="btn btn-ghost" href="https://github.com/kumarpav" target="_blank" rel="noopener">github.com/kumarpav</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <span>© 2026 Pavan Kumar · New York, NY</span>
+      <div class="foot-links">
+        <a href="mailto:pavank997@gmail.com">Email</a>
+        <a href="https://github.com/kumarpav" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* =====================================================================
+     EDIT HERE: project links live in one place.
+     - "demo" = the live deployed URL. The two marked TODO are Railway
+       apps with auto-generated domains — paste the real URLs in.
+     - Set demo to "" to hide the "Live demo" link for a project.
+     ===================================================================== */
+  const PROJECTS = [
+    {
+      icon: "☕",
+      name: "Espresso Coach",
+      tagline: "AI barista in your pocket",
+      desc: "Log every espresso shot — dose, yield, grind, time — and get specific, beginner-friendly AI advice on what to dial in next. Tracks your trajectory per roast over time.",
+      tags: ["FastAPI", "SQLAlchemy", "Claude", "Python"],
+      demo: "https://espresso-log-production.up.railway.app/",
+      repo: "https://github.com/kumarpav/espresso-log"
+    },
+    {
+      icon: "🪴",
+      name: "Plant Daddy",
+      tagline: "Keep your plants alive",
+      desc: "A plant-care journal that diagnoses health issues from your observations and photos. Species-aware AI coaching tells you whether it's overwatering, light, or pests — and what to do.",
+      tags: ["FastAPI", "SQLAlchemy", "Claude Vision", "Python"],
+      demo: "https://plant-daddy.fly.dev", // verify
+      repo: "https://github.com/kumarpav/plant-coach"
+    },
+    {
+      icon: "🧬",
+      name: "MCAT Coach",
+      tagline: "Turn score screenshots into insight",
+      desc: "Snap a screenshot of any MCAT practice result and Claude vision parses it into structured data — then surfaces weak topics and performance trends across sources and sections.",
+      tags: ["FastAPI", "Claude Vision", "SQLAlchemy", "Python"],
+      demo: "https://mcat-coach.fly.dev", // verify
+      repo: "https://github.com/kumarpav/mcat-coach"
+    },
+    {
+      icon: "🃏",
+      name: "Pablo",
+      tagline: "Real-time multiplayer card game",
+      desc: "A live, 2–6 player card game built on WebSockets. Create a lobby, share a 5-letter room code, and play the memory-and-bluff card game Pablo with friends in real time.",
+      tags: ["Node.js", "Socket.io", "Express", "WebSockets"],
+      demo: "https://playpablo.up.railway.app/",
+      repo: "https://github.com/kumarpav/pablo"
+    }
+  ];
+
+  const arrow = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>';
+  const code = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>';
+
+  document.getElementById("project-grid").innerHTML = PROJECTS.map(p => `
+    <article class="card">
+      <div class="icon">${p.icon}</div>
+      <h3>${p.name}</h3>
+      <div class="tagline">${p.tagline}</div>
+      <p class="desc">${p.desc}</p>
+      <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      <div class="card-links">
+        ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener">Live demo ${arrow}</a>` : ``}
+        <a class="repo" href="${p.repo}" target="_blank" rel="noopener">Code ${code}</a>
+      </div>
+    </article>
+  `).join("");
+</script>
+</body>
+</html>
