@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pavan Kumar</title>
-<meta name="description" content="Pavan Kumar — product manager who builds small apps." />
+<meta name="description" content="Pavan Kumar — technical product manager who builds small apps." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -14,12 +14,12 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     color: #111;
     background: #fff;
-    line-height: 1.6;
+    line-height: 1.55;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
   }
   main {
-    max-width: 560px;
+    max-width: 580px;
     margin: 0 auto;
     padding: 120px 24px 96px;
   }
@@ -28,51 +28,79 @@
     font-weight: 600;
     letter-spacing: -.01em;
   }
-  .about {
-    margin-top: 12px;
-    color: #555;
-    max-width: 46ch;
+  .role {
+    margin-top: 6px;
+    color: #777;
+    font-size: .95rem;
   }
   h2 {
-    margin-top: 64px;
-    font-size: .78rem;
+    margin-top: 56px;
+    font-size: .72rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: .12em;
-    color: #999;
+    letter-spacing: .13em;
+    color: #aaa;
   }
-  ul { list-style: none; margin-top: 16px; }
-  li {
+  ul { list-style: none; }
+
+  /* experience */
+  .cv { margin-top: 14px; }
+  .cv li {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     gap: 16px;
-    padding: 12px 0;
+    padding: 7px 0;
+  }
+  .cv .where { font-weight: 400; }
+  .cv .when { color: #aaa; font-size: .85rem; flex-shrink: 0; }
+
+  /* projects */
+  .projects { margin-top: 16px; }
+  .projects li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    padding: 14px 0;
     border-top: 1px solid #eee;
   }
-  li:last-child { border-bottom: 1px solid #eee; }
+  .projects li:last-child { border-bottom: 1px solid #eee; }
+  .proj { display: flex; flex-direction: column; }
   .name { font-weight: 500; }
+  .blurb { color: #888; font-size: .9rem; margin-top: 1px; }
   .links { display: flex; gap: 16px; flex-shrink: 0; }
+
   a { color: #111; text-decoration: none; }
-  .links a { color: #999; font-size: .9rem; }
+  .links a { color: #aaa; font-size: .88rem; }
   .links a:hover { color: #111; }
+
   footer {
-    margin-top: 64px;
+    margin-top: 56px;
     display: flex;
     gap: 20px;
     font-size: .9rem;
-    color: #999;
+    color: #aaa;
   }
+  footer a { color: #aaa; }
   footer a:hover { color: #111; }
 </style>
 </head>
 <body>
 <main>
   <h1>Pavan Kumar</h1>
-  <p class="about">Product manager. I build small apps, usually with a bit of AI, most mornings.</p>
+  <p class="role">Technical product manager, 7+ years.</p>
+
+  <h2>Experience</h2>
+  <ul class="cv">
+    <li><span class="where">Loyalty &amp; Commerce, JCPenney</span><span class="when">2024-26</span></li>
+    <li><span class="where">Platform, The New York Times</span><span class="when">2022-24</span></li>
+    <li><span class="where">Rewards, Starbucks (40M+ members)</span><span class="when">2018-22</span></li>
+    <li><span class="where">B.S. Informatics, University of Washington</span><span class="when">2019</span></li>
+  </ul>
 
   <h2>Projects</h2>
-  <ul id="projects"></ul>
+  <ul class="projects" id="projects"></ul>
 
   <footer>
     <a href="mailto:pavank997@gmail.com">Email</a>
@@ -83,15 +111,15 @@
 <script>
   /* =====================================================================
      EDIT HERE: project links live in one place.
+     - "tagline" is the one-line description shown under each project name.
      - "demo" = the live deployed URL. Set to "" to hide the Live link.
-     - icon / tagline / desc / tags are kept for the auto-updater but are
-       not shown in this minimal layout.
+     - icon / desc / tags are kept for the auto-updater but not shown.
      ===================================================================== */
   const PROJECTS = [
     {
       icon: "☕",
       name: "Espresso Coach",
-      tagline: "AI barista in your pocket",
+      tagline: "Logs your espresso shots and coaches you to a better pull.",
       desc: "Log every espresso shot (dose, yield, grind, time) and get specific, friendly advice on what to change next. It remembers your past shots for each roast, so the suggestions build on each other.",
       tags: ["FastAPI", "SQLAlchemy", "Claude", "Python"],
       demo: "https://espresso-log-production.up.railway.app/",
@@ -100,7 +128,7 @@
     {
       icon: "🪴",
       name: "Plant Daddy",
-      tagline: "Keep your plants alive",
+      tagline: "Diagnoses sick houseplants from your notes and photos.",
       desc: "A plant-care journal that helps you figure out what's wrong from your notes and photos. It pays attention to the species and tells you whether you're looking at overwatering, bad light, or pests, plus what to do about it.",
       tags: ["FastAPI", "SQLAlchemy", "Claude Vision", "Python"],
       demo: "https://plant-daddy.fly.dev",
@@ -109,7 +137,7 @@
     {
       icon: "🧬",
       name: "MCAT Coach",
-      tagline: "Turn score screenshots into insight",
+      tagline: "Turns MCAT score screenshots into topic-level insights.",
       desc: "Snap a screenshot of any MCAT practice result and Claude reads it into clean data, then shows you which topics are dragging you down and how you're trending across sources and sections.",
       tags: ["FastAPI", "Claude Vision", "SQLAlchemy", "Python"],
       demo: "https://mcat-coach.fly.dev",
@@ -118,7 +146,7 @@
     {
       icon: "🃏",
       name: "Pablo",
-      tagline: "Real-time multiplayer card game",
+      tagline: "Real-time multiplayer card game you play with friends.",
       desc: "A live card game for 2 to 6 players, built on WebSockets. Start a lobby, share the 5-letter room code, and play Pablo with friends in real time.",
       tags: ["Node.js", "Socket.io", "Express", "WebSockets"],
       demo: "https://playpablo.up.railway.app/",
@@ -127,7 +155,7 @@
     {
       icon: "👗",
       name: "Saree Wardrobe",
-      tagline: "Organize your sarees",
+      tagline: "Catalogs your sarees and pairs them into outfits.",
       desc: "A catalog app for organizing sarees and blouses, pairing them into outfits, and finding items with filters or plain-text search. Color detection runs automatically on upload, and you can back up and restore the whole catalog as JSON.",
       tags: ["FastAPI", "SQLAlchemy", "Python", "SQLite"],
       demo: "https://saree-wardrobe.fly.dev",
@@ -137,7 +165,10 @@
 
   document.getElementById("projects").innerHTML = PROJECTS.map(p => `
     <li>
-      <span class="name">${p.name}</span>
+      <span class="proj">
+        <span class="name">${p.name}</span>
+        <span class="blurb">${p.tagline}</span>
+      </span>
       <span class="links">
         ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener">Live</a>` : ``}
         <a href="${p.repo}" target="_blank" rel="noopener">Code</a>
