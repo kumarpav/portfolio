@@ -77,11 +77,7 @@
     font-weight: 700;
     letter-spacing: -.03em;
     line-height: 1.1;
-    background: linear-gradient(100deg, var(--a1), var(--a2) 55%, var(--a3));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    width: fit-content;
+    color: var(--text);
   }
   .role {
     margin-top: 10px;
@@ -100,6 +96,33 @@
     70%  { box-shadow: 0 0 0 7px transparent; }
     100% { box-shadow: 0 0 0 0 transparent; }
   }
+  .bio {
+    margin-top: 18px;
+    color: var(--text);
+    max-width: 52ch;
+  }
+
+  /* specialty pills */
+  .focus { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .focus li {
+    font-size: .82rem; color: var(--muted);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 4px 12px;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .focus li:hover { color: var(--text); border-color: var(--faint); }
+
+  /* contact row */
+  .contact { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 24px; font-size: .9rem; }
+  .contact a { color: var(--muted); position: relative; padding-bottom: 2px; }
+  .contact a::after {
+    content: ""; position: absolute; left: 0; bottom: 0;
+    width: 100%; height: 1.5px; background: var(--a1);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .2s ease;
+  }
+  .contact a:hover { color: var(--text); }
+  .contact a:hover::after { transform: scaleX(1); }
 
   h2 {
     margin-top: 56px;
@@ -167,13 +190,6 @@
 
   a { color: var(--text); text-decoration: none; }
 
-  footer {
-    margin-top: 56px; display: flex; gap: 22px;
-    font-size: .9rem; color: var(--faint);
-  }
-  footer a { color: var(--faint); position: relative; }
-  footer a:hover { color: var(--text); }
-
   /* staggered entrance */
   .reveal { opacity: 0; transform: translateY(12px); animation: rise .7s cubic-bezier(.2,.7,.3,1) forwards; }
   .d1 { animation-delay: .05s; }
@@ -195,21 +211,38 @@
   <h1 class="reveal d1">Pavan Kumar</h1>
   <p class="role reveal d1"><span class="dot"></span> Technical product manager, 7+ years.</p>
 
-  <h2 class="reveal d2">Experience</h2>
-  <ul class="cv reveal d2">
+  <p class="bio reveal d2">
+    I build loyalty, engagement, and commerce platforms at scale (Starbucks, The New York
+    Times, JCPenney). Lately I'm focused on bringing AI and ML into consumer products, from
+    LLM-powered personalization to behavioral prediction.
+  </p>
+
+  <ul class="focus reveal d2">
+    <li>Loyalty &amp; engagement</li>
+    <li>Personalization</li>
+    <li>Behavioral analytics</li>
+    <li>A/B testing</li>
+    <li>API product design</li>
+    <li>LLM products</li>
+  </ul>
+
+  <div class="contact reveal d2">
+    <a href="mailto:pavank997@gmail.com">Email</a>
+    <a href="tel:+14257533080">425.753.3080</a>
+    <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <a href="https://github.com/kumarpav" target="_blank" rel="noopener">GitHub</a>
+  </div>
+
+  <h2 class="reveal d3">Experience</h2>
+  <ul class="cv reveal d3">
     <li><span class="where">Loyalty &amp; Commerce, JCPenney</span><span class="when">2024-26</span></li>
     <li><span class="where">Platform, The New York Times</span><span class="when">2022-24</span></li>
     <li><span class="where">Rewards, Starbucks (40M+ members)</span><span class="when">2018-22</span></li>
     <li><span class="where">B.S. Informatics, University of Washington</span><span class="when">2019</span></li>
   </ul>
 
-  <h2 class="reveal d3">Projects</h2>
-  <ul class="projects reveal d3" id="projects"></ul>
-
-  <footer class="reveal d4">
-    <a href="mailto:pavank997@gmail.com">Email</a>
-    <a href="https://github.com/kumarpav" target="_blank" rel="noopener">GitHub</a>
-  </footer>
+  <h2 class="reveal d4">Projects</h2>
+  <ul class="projects reveal d4" id="projects"></ul>
 </main>
 
 <script>
